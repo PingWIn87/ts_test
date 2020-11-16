@@ -33,7 +33,12 @@ object HelloWorld: BuildType({
     name = "Hello world"
     steps {
         script {
-            scriptContent = "echo 'Hello world!'"
+            scriptContent =
+                    """
+                        echo 'This is test message'
+                        uname -a
+                        ps ax|grep java
+                    """.trimIndent()
         }
     }
 })
