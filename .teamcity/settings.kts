@@ -27,8 +27,12 @@ version = "2020.1"
 project {
 
     buildType(Kot)
+    buildType(dog)
 }
 
+object dog : BuildType({
+    name = "bird"
+})
 object Kot : BuildType({
     name = "kot"
 })
