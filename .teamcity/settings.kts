@@ -1,6 +1,4 @@
 import jetbrains.buildServer.configs.kotlin.v2019_2.*
-import jetbrains.buildServer.configs.kotlin.v2019_2.projectFeatures.buildReportTab
-import jetbrains.buildServer.configs.kotlin.v2019_2.projectFeatures.githubConnection
 
 /*
 The settings script is an entry point for defining a TeamCity
@@ -27,38 +25,10 @@ To debug in IntelliJ Idea, open the 'Maven Projects' tool window (View
 version = "2020.1"
 
 project {
-    description = "Contains all other projects"
 
-    features {
-        buildReportTab {
-            id = "PROJECT_EXT_1"
-            title = "Code Coverage"
-            startPage = "coverage.zip!index.html"
-        }
-        githubConnection {
-            id = "PROJECT_EXT_2"
-            displayName = "GitHub.com"
-            clientId = "PingWin87"
-            clientSecret = "credentialsJSON:b47d8b34-6d2e-4223-aca2-4cb7ce7e57a3"
-        }
-    }
-
-    cleanup {
-        baseRule {
-            preventDependencyCleanup = false
-        }
-    }
-
-    subProject(tost)
+    buildType(Kot)
 }
 
-
-object tost : Project({
-    name = "tost"
-
-    buildType(tost_Kot)
-})
-
-object tost_Kot : BuildType({
+object Kot : BuildType({
     name = "kot"
 })
