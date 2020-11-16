@@ -30,7 +30,7 @@ project {
 }
 
 object HelloWorld: BuildType({
-    name = "Hello world"
+    name = "Script"
     steps {
         script {
             scriptContent =
