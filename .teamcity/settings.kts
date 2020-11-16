@@ -1,5 +1,3 @@
-import jetbrains.buildServer.configs.kotlin.v2019_2.*
-
 /*
 The settings script is an entry point for defining a TeamCity
 project hierarchy. The script should contain a single call to the
@@ -22,17 +20,20 @@ To debug in IntelliJ Idea, open the 'Maven Projects' tool window (View
 'Debug' option is available in the context menu for the task.
 */
 
+import jetbrains.buildServer.configs.kotlin.v2019_2.*
+import jetbrains.buildServer.configs.kotlin.v2019_2.buildSteps.script
+
 version = "2020.1"
 
 project {
-
-    buildType(Kot)
-    buildType(dog)
+    buildType(HelloWorld)
 }
 
-object dog : BuildType({
-    name = "bird"
-})
-object Kot : BuildType({
-    name = "kot"
+object HelloWorld: BuildType({
+    name = "Hello world"
+    steps {
+        script {
+            scriptContent = "echo 'Hello world!'"
+        }
+    }
 })
